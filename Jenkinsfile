@@ -9,21 +9,18 @@ pipeline {
     }
 
 
-     environment {
+     /*environment {
         AWS_ACCESS_KEY_ID     = credentials('AWS_ACCESS_KEY_ID')
         AWS_SECRET_ACCESS_KEY = credentials('AWS_SECRET_ACCESS_KEY')
-    }
+    }*/
 
 
     stages {
         stage('checkout') {
             steps {
-                 script{
-                        dir("terraform")
-                        {
-                            git "https://github.com/troy-ingram/week-24-project.git"
-                        }
-                    }
+
+                 git branch: 'master', changelog: false, poll: false, url: 'https://github.com/muzafferjoya/week-24-project.git'
+                    
                 }
             }
 
